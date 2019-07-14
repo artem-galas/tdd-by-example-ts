@@ -1,5 +1,8 @@
 export class Dollar {
-  constructor(public amount: number) {}
+  private readonly amount: number;
+  constructor(amount: number) {
+    this.amount = amount;
+  }
 
   times(value: number) {
     return new Dollar(this.amount * value);
