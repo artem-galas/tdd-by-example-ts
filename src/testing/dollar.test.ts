@@ -8,4 +8,10 @@ describe('Dollar', () => {
     product = five.times(3);
     expect(15).toBe(product.amount);
   });
+
+  test('equality', () => {
+    const one = new Dollar(5);
+    const two = new Dollar(5);
+    expect(one.equals(two)).toBeTruthy();
+  });
 });
