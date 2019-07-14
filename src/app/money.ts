@@ -5,8 +5,12 @@ export class Money {
     this.amount = amount;
   }
 
-  equals(object: {}) {
+  equals(object: {}): boolean {
     const money = object as Money;
-    return this.amount === money.amount;
+    if (this.constructor.name === money.constructor.name) {
+      return this.amount === money.amount;
+    } else {
+      return false;
+    }
   }
 }
