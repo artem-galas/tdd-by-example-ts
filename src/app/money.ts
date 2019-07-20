@@ -1,8 +1,19 @@
-export class Money {
-  protected readonly amount: number;
+import { Dollar, Franc } from '.';
 
-  constructor(amount: number) {
+export abstract class Money {
+  protected readonly amount: number;
+  abstract times(multiplier: number): Money;
+
+  protected constructor(amount: number) {
     this.amount = amount;
+  }
+
+  static dollar(value: number): Money {
+    return new Dollar(value);
+  }
+
+  static franc(value: number): Money {
+    return new Franc(value);
   }
 
   equals(object: {}): boolean {

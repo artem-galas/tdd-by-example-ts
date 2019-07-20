@@ -18,7 +18,7 @@
   "scripts": {
     "check": "gts check",
     "clean": "gts clean",
-    "compile": "tsc -p .",
+    "compile": "yarn clean && tsc -p .",
     "fix": "gts fix",
     "test": "jest",
     "posttest": "yarn run check"

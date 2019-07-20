@@ -1,4 +1,4 @@
-import { Money } from '~/app/money';
+import { Money } from '.';
 
 export class Dollar extends Money {
   constructor(amount: number) {
