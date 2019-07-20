@@ -1,4 +1,4 @@
-import { Dollar } from '~/app/dollar';
+import { Dollar } from '~/app';
 
 describe('Dollar', () => {
   test('should return multiplication', () => {
