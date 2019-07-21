@@ -1,9 +1,6 @@
-import { Dollar, Franc } from '.';
-
 export class Money {
   protected readonly amount: number;
   protected readonly _currency: string;
-  // abstract times(multiplier: number): Money;
 
   constructor(amount: number, currency: string) {
     this.amount = amount;
@@ -15,11 +12,11 @@ export class Money {
   }
 
   static dollar(value: number): Money {
-    return new Dollar(value, 'USD');
+    return new Money(value, 'USD');
   }
 
   static franc(value: number): Money {
-    return new Franc(value, 'CHF');
+    return new Money(value, 'CHF');
   }
 
   toString() {
