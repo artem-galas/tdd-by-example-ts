@@ -1,11 +1,11 @@
 import { Dollar, Franc } from '.';
 
-export abstract class Money {
+export class Money {
   protected readonly amount: number;
   protected readonly _currency: string;
-  abstract times(multiplier: number): Money;
+  // abstract times(multiplier: number): Money;
 
-  protected constructor(amount: number, currency: string) {
+  constructor(amount: number, currency: string) {
     this.amount = amount;
     this._currency = currency;
   }
@@ -22,12 +22,16 @@ export abstract class Money {
     return new Franc(value, 'CHF');
   }
 
+  toString() {
+    return `${this.amount} ${this.currency}`;
+  }
+
   equals(object: {}): boolean {
     const money = object as Money;
-    if (this.constructor.name === money.constructor.name) {
-      return this.amount === money.amount;
-    } else {
-      return false;
-    }
+    return this.amount === money.amount && this.currency === money.currency;
+  }
+
+  times(multiplier: number): Money {
+    return new Money(this.amount * multiplier, this.currency);
   }
 }

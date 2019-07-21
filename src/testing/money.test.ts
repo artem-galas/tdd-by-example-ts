@@ -1,4 +1,4 @@
-import { Money } from '~/app/';
+import { Franc, Money } from '~/app/';
 
 describe('Money', () => {
   test('equality different currencies', () => {
@@ -6,6 +6,20 @@ describe('Money', () => {
     const franc = Money.franc(5);
 
     expect(dollar.equals(franc)).toBeFalsy();
+  });
+
+  test('equality different classes currencies', () => {
+    const money = new Money(10, 'CHF');
+    const franc = new Franc(10);
+
+    expect(money.equals(franc)).toBeTruthy();
+  });
+
+  test('equality one currencies', () => {
+    const dollar1 = Money.dollar(5);
+    const dollar2 = Money.dollar(5);
+
+    expect(dollar1.equals(dollar2)).toBeTruthy();
   });
 
   test('dollar multiplication', () => {

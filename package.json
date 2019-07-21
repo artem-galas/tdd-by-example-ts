@@ -20,8 +20,7 @@
     "clean": "gts clean",
     "compile": "yarn clean && tsc -p .",
     "fix": "gts fix",
-    "test": "jest",
-    "posttest": "yarn run check"
+    "test": "jest"
   },
   "jest": {
     "testEnvironment": "node",
@@ -33,7 +32,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test"
+      "pre-commit": "yarn test && yarn run check"
     }
   }
 }
