@@ -1,5 +1,6 @@
 import { Money } from '~/app/money';
 import { Bank } from '~/app/bank';
+import { Sum } from '~/app/sum';
 
 describe('Money', () => {
   test('equality different currencies', () => {
@@ -52,5 +53,22 @@ describe('Money', () => {
     const reduced = bank.reduce(sum, 'USD');
 
     expect(Money.dollar(10)).toEqual(reduced);
+  });
+
+  test('reduce sum', () => {
+    const sum = new Sum(Money.dollar(3), Money.dollar(4));
+    const bank = new Bank();
+
+    const result = bank.reduce(sum, 'USD');
+
+    expect(Money.dollar(7).equals(result)).toBeTruthy();
+  });
+
+  test('reduce money', () => {
+    const bank = new Bank();
+
+    const result = bank.reduce(Money.dollar(1), 'USD');
+
+    expect(Money.dollar(1).equals(result)).toBeTruthy();
   });
 });
