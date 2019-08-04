@@ -1,4 +1,5 @@
 import { Money } from '~/app/money';
+import { Bank } from '~/app/bank';
 
 describe('Money', () => {
   test('equality different currencies', () => {
@@ -41,5 +42,15 @@ describe('Money', () => {
     const franc = Money.franc(5);
 
     expect(franc.currency).toBe('CHF');
+  });
+
+  test('simple additional', () => {
+    const bank = new Bank();
+    const five = Money.dollar(5);
+    const sum = five.plus(five);
+
+    const reduced = bank.reduce(sum, 'USD');
+
+    expect(Money.dollar(10)).toEqual(reduced);
   });
 });
