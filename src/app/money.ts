@@ -1,5 +1,6 @@
 import { Expression } from '~/app/expression.interface';
 import { Sum } from '~/app/sum';
+import { Bank } from '~/app/bank';
 
 export class Money implements Expression {
   protected readonly _amount: number;
@@ -43,7 +44,9 @@ export class Money implements Expression {
     return new Money(this.amount * multiplier, this.currency);
   }
 
-  reduce(to: string) {
-    return this;
+  reduce(bank: Bank, to: string) {
+    const rate = bank.rate(this.currency, to);
+
+    return new Money(this.amount / rate, to);
   }
 }
