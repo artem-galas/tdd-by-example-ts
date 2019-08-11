@@ -13,6 +13,13 @@ export class Sum implements Expression {
   }
 
   plus(added: Expression): Expression {
-    return null!;
+    return new Sum(this, added);
+  }
+
+  times(multiplier: number) {
+    return new Sum(
+      this.augend.times(multiplier),
+      this.addend.times(multiplier)
+    );
   }
 }
