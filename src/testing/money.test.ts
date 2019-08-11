@@ -1,6 +1,7 @@
 import { Money } from '~/app/money';
 import { Bank } from '~/app/bank';
 import { Sum } from '~/app/sum';
+import { Expression } from '~/app/expression.interface';
 
 describe('Money', () => {
   test('equality different currencies', () => {
@@ -83,5 +84,17 @@ describe('Money', () => {
 
   test('identity rate', () => {
     expect(new Bank().rate('USD', 'USD')).toBe(1);
+  });
+
+  test('mixed addition', () => {
+    const fiveBucks: Expression = Money.dollar(5);
+    const tenFrank: Expression = Money.franc(10);
+    const bank = new Bank();
+
+    bank.addRate('CHF', 'USD', 2);
+
+    const result = bank.reduce(fiveBucks.plus(tenFrank), 'USD');
+
+    expect(Money.dollar(10).equals(result)).toBeTruthy();
   });
 });
