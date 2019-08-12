@@ -20,7 +20,8 @@
     "clean": "gts clean",
     "compile": "yarn clean && tsc -p .",
     "fix": "gts fix",
-    "test": "jest"
+    "test": "jest",
+    "xUnit": "ts-node src/xUnit/testing/xUnit.test.ts"
   },
   "jest": {
     "testEnvironment": "node",

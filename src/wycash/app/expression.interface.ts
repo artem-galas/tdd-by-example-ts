@@ -1,5 +1,5 @@
-import { Money } from '~/app/money';
-import { Bank } from '~/app/bank';
+import { Money } from '~/wycash/app/money';
+import { Bank } from '~/wycash/app/bank';
 
 export interface Expression {
   reduce(bank: Bank, to: string): Money;

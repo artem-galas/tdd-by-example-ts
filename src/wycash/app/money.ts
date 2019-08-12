@@ -1,6 +1,6 @@
-import { Expression } from '~/app/expression.interface';
-import { Sum } from '~/app/sum';
-import { Bank } from '~/app/bank';
+import { Expression } from '~/wycash/app/expression.interface';
+import { Sum } from '~/wycash/app/sum';
+import { Bank } from '~/wycash/app/bank';
 
 export class Money implements Expression {
   protected readonly _amount: number;

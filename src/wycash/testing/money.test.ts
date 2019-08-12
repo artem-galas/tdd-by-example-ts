@@ -1,7 +1,7 @@
-import { Money } from '~/app/money';
-import { Bank } from '~/app/bank';
-import { Sum } from '~/app/sum';
-import { Expression } from '~/app/expression.interface';
+import { Money } from '~/wycash/app/money';
+import { Bank } from '~/wycash/app/bank';
+import { Sum } from '~/wycash/app/sum';
+import { Expression } from '~/wycash/app/expression.interface';
 
 describe('Money', () => {
   test('equality different currencies', () => {

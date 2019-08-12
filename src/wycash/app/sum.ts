@@ -1,6 +1,6 @@
-import { Expression } from '~/app/expression.interface';
-import { Money } from '~/app/money';
-import { Bank } from '~/app/bank';
+import { Expression } from '~/wycash/app/expression.interface';
+import { Money } from '~/wycash/app/money';
+import { Bank } from '~/wycash/app/bank';
 
 export class Sum implements Expression {
   constructor(public augend: Expression, public addend: Expression) {}

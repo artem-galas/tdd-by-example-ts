@@ -1,6 +1,6 @@
-import { Expression } from '~/app/expression.interface';
-import { Money } from '~/app/money';
-import { Pair } from '~/app/pair';
+import { Expression } from '~/wycash/app/expression.interface';
+import { Money } from '~/wycash/app/money';
+import { Pair } from '~/wycash/app/pair';
 
 export class Bank {
   private rates = new Map<string, number>();

@@ -26,7 +26,7 @@ Test Driven Development: By Example [Kent Beck](https://www.kentbeck.com/)
   </a>
 </p>
 
-Original book was released in 2002 and used Java + [JUnit](https://junit.org/junit5/). 
+Original book was released in 2002 and used Java + [JUnit](https://junit.org/junit5/) for the first part and Python for second part. 
 I would like to rewrite those examples to Typescript + [Jest](https://jestjs.io/).
 
 ## Pre requirements
@@ -35,6 +35,15 @@ I would like to rewrite those examples to Typescript + [Jest](https://jestjs.io/
     - [VsCode](https://code.visualstudio.com/) + [Jest Extension](https://marketplace.visualstudio.com/items?itemName=Orta.vscode-jest)
     - [WebStorm](https://www.jetbrains.com/webstorm/)
 3. Open project folder and run `yarn install` or `npm install` for installing all dependencies
+
+## Repo structure
+Since the book consists of two parts, the repository also has two parts:
+- wycash - application that shows how to use TDD. 
+The main idea of this application make manipulations with different currencies (5$ + 10 CHF = 20$) 
+- xUnit - testing tools which will be tested with itself (write xUnit and test it with xUnit)
+
+All commit message have a convention: `part_01(ch01): first test pass`. 
+So it easy to look through the chapters.
 
 ## Developer notes
 For generate project [gts](https://github.com/google/gts) was used.
