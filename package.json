@@ -12,6 +12,8 @@
     "husky": "^3.0.0",
     "jest": "^24.8.0",
     "ts-jest": "^24.0.2",
+    "ts-node": "^8.5.4",
+    "tsconfig-paths": "^3.9.0",
     "tslint": "^5.18.0",
     "typescript": "^3.5.3"
   },
@@ -21,15 +23,18 @@
     "compile": "yarn clean && tsc -p .",
     "fix": "gts fix",
     "test": "jest",
-    "xUnit": "ts-node src/xUnit/testing/xUnit.test.ts"
+    "xUnit": "ts-node -r tsconfig-paths/register src/xUnit/testing/test-case.test.ts"
   },
   "jest": {
     "testEnvironment": "node",
     "preset": "ts-jest",
-    "modulePathIgnorePatterns": ["<rootDir>/build"],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/build"
+    ],
     "moduleNameMapper": {
       "^~/(.*)$": "<rootDir>/src/$1"
-    }
+    },
+    "testPathIgnorePatterns": ["<rootDir>/src/xUnit"]
   },
   "husky": {
     "hooks": {
