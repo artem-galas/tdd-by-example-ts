@@ -1,11 +1,21 @@
 import { TestCase } from './test-case';
 
 export class WasRun extends TestCase {
-  wasRun: boolean | undefined;
-  wasSetUp: boolean | undefined;
+  get log() {
+    return this._log.join(', ');
+  }
+
+  private _log: string[] = [];
 
   setUp() {
-    this.wasRun = false;
-    this.wasSetUp = true;
+    this._log = [...this._log, 'setUp'];
+  }
+
+  testMethod() {
+    this._log = [...this._log, 'testMethod'];
+  }
+
+  tearDown() {
+    this._log = [...this._log, 'tearDown'];
   }
 }

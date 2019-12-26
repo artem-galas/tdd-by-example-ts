@@ -4,20 +4,12 @@ import { WasRun } from '~/xUnit/app/was-run';
 class TestCaseTest extends TestCase {
   test: WasRun | undefined;
 
-  setUp() {
+  testTemplateMethod() {
     this.test = new WasRun('testMethod');
-  }
+    this.test.run();
 
-  testRunning() {
-    this.test!.run();
-    console.assert(this.test!.wasRun);
-  }
-
-  testSetUp() {
-    this.test!.run();
-    console.assert(this.test!.wasSetUp);
+    console.assert('setUp, testMethod, tearDown' === this.test.log);
   }
 }
 
-const testCaseTest = new TestCaseTest('testRunning').run();
-const testSetUp = new TestCaseTest('testSetUp').run();
+const testSetUp = new TestCaseTest('testTemplateMethod').run();
