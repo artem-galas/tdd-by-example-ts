@@ -5,7 +5,9 @@
   "main": "index.js",
   "author": "Artem Halas",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "@types/assert": "^1.4.3"
+  },
   "devDependencies": {
     "@types/jest": "^24.0.15",
     "gts": "^1.0.0",
@@ -34,7 +36,9 @@
     "moduleNameMapper": {
       "^~/(.*)$": "<rootDir>/src/$1"
     },
-    "testPathIgnorePatterns": ["<rootDir>/src/xUnit"]
+    "testPathIgnorePatterns": [
+      "<rootDir>/src/xUnit"
+    ]
   },
   "husky": {
     "hooks": {
