@@ -18,4 +18,8 @@ export class WasRun extends TestCase {
   tearDown() {
     this._log = [...this._log, 'tearDown'];
   }
+
+  testBrokenMethod() {
+    throw Error();
+  }
 }

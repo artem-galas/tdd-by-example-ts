@@ -1,3 +1,5 @@
+import { TestResult } from '~/xUnit/app/test-result';
+
 export class TestCase {
   constructor(protected name: string) {}
 
@@ -6,6 +8,8 @@ export class TestCase {
   tearDown() {}
 
   run() {
+    const result = new TestResult();
+    result.testStarted();
     this.setUp();
 
     const methodName = this.name as keyof this;
@@ -13,5 +17,7 @@ export class TestCase {
     method.bind(this)();
 
     this.tearDown();
+
+    return result;
   }
 }
