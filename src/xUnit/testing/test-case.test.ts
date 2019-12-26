@@ -1,5 +1,6 @@
 import { TestCase } from '~/xUnit/app/test-case';
 import { WasRun } from '~/xUnit/app/was-run';
+import { TestResult } from '~/xUnit/app/test-result';
 
 class TestCaseTest extends TestCase {
   test: WasRun | undefined;
@@ -22,8 +23,19 @@ class TestCaseTest extends TestCase {
 
     console.assert('setUp, testMethod, tearDown' === this.test.log);
   }
+
+  testFailedResultFormatting() {
+    const result = new TestResult();
+    result.testStarted();
+    result.testFailed();
+
+    console.assert('1 run, 1 failed' === result.summary());
+  }
 }
 
 const testSetUp = new TestCaseTest('testTemplateMethod').run();
 const testResult = new TestCaseTest('testResult').run();
 const testFailedResult = new TestCaseTest('testFailedResult').run();
+const testFailedResultFormatting = new TestCaseTest(
+  'testFailedResultFormatting'
+).run();

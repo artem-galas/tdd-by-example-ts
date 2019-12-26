@@ -12,9 +12,13 @@ export class TestCase {
     result.testStarted();
     this.setUp();
 
-    const methodName = this.name as keyof this;
-    const method = (this[methodName] as unknown) as Function;
-    method.bind(this)();
+    try {
+      const methodName = this.name as keyof this;
+      const method = (this[methodName] as unknown) as Function;
+      method.bind(this)();
+    } catch (error) {
+      result.testFailed();
+    }
 
     this.tearDown();
 
